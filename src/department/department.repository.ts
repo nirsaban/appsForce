@@ -18,7 +18,7 @@ export class DepartmentRepository {
   public async getAllWithUsers(): Promise<DepartmentEntity & { usersCount: number }[]> {
     try {
       const result = (await db.query(
-        sql`SELECT departments.*,COUNT(users.id) as usersCount FROM  appsforce.departments  LEFT JOIN users  ON users.department = departments.name group by departments.id`
+        sql`SELECT departments.*,COUNT(users.id) as usersCount FROM  appsforce.departments  LEFT JOIN users  ON users.department = departments.name group by departments.name`
       )) as DepartmentDto & { usersCount: number }[];
 
       return result;

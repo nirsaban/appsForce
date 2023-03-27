@@ -1,0 +1,44 @@
+service: Appsforce-testing
+provider : 
+ name : aws
+ runtime : nodejs16.x
+package:
+  exclude:
+    - node_modules/**
+functions: 
+  AppsforceTesting:
+    handler : ./dist/index.handler
+    events:
+      - http:
+          path: api/v1/users
+          method: get
+          cors: true
+      - http:
+          path: api/v1/users
+          method: post
+          cors: true
+      - http:
+          path: api/v1/users/{userId}
+          method: put
+          cors: true
+      - http:
+          path: api/v1/users/{userId}
+          method: delete
+          cors: true  
+      - http:
+          path: api/v1/users/{userId}
+          method: get
+          cors: true  
+      - http:
+          path: api/v1/departments
+          method: post
+          cors: true 
+      - http:
+          path: api/v1/departments/{departmentId}
+          method: delete
+          cors: true   
+      - http:
+          path: api/v1/departments
+          method: get
+          cors: true     
+ 

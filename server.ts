@@ -1,8 +1,8 @@
 import express, { Express, NextFunction, Request } from "express";
 import * as dotenv from "dotenv";
 dotenv.config();
-import { handleErrors } from "./common/middlewares/errorHandler.middleware";
-import { RouterApi } from "./routes/index.routes";
+import { handleErrors } from "./src/common/middlewares/errorHandler.middleware";
+import { RouterApi } from "./src/routes/index.routes";
 import createConnectionPool from "@databases/mysql";
 
 import cors from "cors";

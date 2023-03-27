@@ -7,10 +7,10 @@ import departments from "../../__generated__/departments";
 
 export { sql };
 
-const userDB = process.env.DB_USER;
-const hostDB = process.env.DB_HOST;
-const passwordDB = process.env.DB_PASS;
-const database = process.env.DB_NAME;
+const userDB = process.env.DB_USER || "admin";
+const hostDB = process.env.DB_HOST || "appsfprce.czaiiuhlefrv.us-east-1.rds.amazonaws.com";
+const passwordDB = process.env.DB_PASS || "nirsa112023";
+const database = process.env.DB_NAME || "appsforce";
 
 const db = createConnectionPool({
   connectionString: `mysql://${userDB}:${passwordDB}@${hostDB}:3306/${database}`,
